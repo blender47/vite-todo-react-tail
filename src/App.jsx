@@ -12,6 +12,7 @@ const initialState = [
   {id: 4, title: "pickup groceries", completed: false },
   {id: 5, title: "Complete todo app en frontendmentor", completed: false }
 ]
+
 const App = () => {
   const [todos, setTodos] = useState(initialState)
 
@@ -24,6 +25,16 @@ const App = () => {
     setTodos([...todos, newTodo])
   }
 
+  const updateTodo = (id)=>{
+    const newTodos = todos.map((todo) => {
+      if(todo.id === id){
+        todo.completed = !todo.completed
+      }
+        return todo
+    })
+    setTodos(newTodos)
+  }
+
   return (
     <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat bg-contain bg-gray-300 min-h-screen">
       <Header />
@@ -31,7 +42,7 @@ const App = () => {
 
       <TodoCreate createTodo={createTodo}/>
 
-      <TodoList todos={todos} />  
+      <TodoList todos={todos} updateTodo={updateTodo}/>  
          
       <TodoComputed />    
 
