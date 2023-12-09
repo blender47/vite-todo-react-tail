@@ -14,12 +14,12 @@ const handleSubmit = (e) =>{
 }
 
     return(
-        <form onSubmit={handleSubmit} className="flex gap-4 bg-white rounded-md overflow-hidden py-4 items-center px-4">
+        <form onSubmit={handleSubmit} className="dark:bg-gray-800 transition-all duration-1000 flex gap-4 bg-white rounded-md overflow-hidden py-4 items-center px-4">
           <span className="w-5 h-5 rounded-full border-2 inline-block"></span>
           <input 
           type="text" 
           placeholder="Create a new Todo..." 
-          className="w-full outline-none text-gray-400"
+          className="w-full outline-none text-gray-400 dark:bg-gray-800 transition-all duration-1000"
           value={title}
           onChange={(e)=>setTitle(e.target.value)}
           />
